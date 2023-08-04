@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans>
+    <bean id="UserBasicDao" class="com.lqf.dao.impl.UserBasicDaoImpl"></bean>
+    <bean id="TopicDao" class="com.lqf.dao.impl.TopicDaoImpl"></bean>
+    <bean id="ReplyDao" class="com.lqf.dao.impl.ReplyDaoImpl"></bean>
+    <bean id="HostReplyDao" class="com.lqf.dao.impl.HostReplyDaoImpl"></bean>
+
+
+    <bean id="UserBasicService" class="com.lqf.service.impl.UserBasicServiceImpl">
+        <property name="userBasicDao" ref="UserBasicDao"></property>
+        <property name="topicService" ref="TopicService"></property>
+    </bean>
+    <bean id="HostReplyService" class="com.lqf.service.impl.HostReplyServiceImpl">
+        <property name="hostReplyDao" ref="HostReplyDao"></property>
+    </bean>
+    <bean id="ReplyService" class="com.lqf.service.impl.ReplyServiceImpl">
+        <property name="replyDao" ref="ReplyDao"></property>
+        <property name="userBasicService" ref="UserBasicService"></property>
+        <property name="hostReplyService" ref="HostReplyService"></property>
+    </bean>
+    <bean id="TopicService" class="com.lqf.service.impl.TopicServiceImpl">
+        <property name="topicDao" ref="TopicDao"></property>
+        <property name="userBasicService" ref="UserBasicService"></property>
+        <property name="replyService" ref="ReplyService"></property>
+    </bean>
+
+
+    <bean id="user" class="com.lqf.controller.UserController">
+        <property name="userBasicService" ref="UserBasicService"></property>
+    </bean>
+    <bean id="page" class="com.lqf.controller.PageController"></bean>
+    <bean id="topic" class="com.lqf.controller.TopicController">
+        <property name="topicService" ref="TopicService"></property>
+    </bean>
+    <bean id="reply" class="com.lqf.controller.ReplyController">
+        <property name="replyService" ref="ReplyService"></property>
+    </bean>
+    <bean id="hostReply" class="com.lqf.controller.HostReplyController">
+        <property name="hostReplyService" ref="HostReplyService"></property>
+    </bean>
+</beans>

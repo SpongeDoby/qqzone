@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app metadata-complete="false" version="5.0" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="https://jakarta.ee/xml/ns/jakartaee">
+  <context-param>
+    <param-name>view-prefix</param-name>
+    <param-value>/</param-value>
+  </context-param>
+  <context-param>
+    <param-name>view-suffix</param-name>
+    <param-value>.html</param-value>
+  </context-param>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>applicationContext.xml</param-value>
+  </context-param>
+</web-app>
